@@ -1,11 +1,19 @@
-
+import {useEffect} from 'react';
 import { useMovieContext } from './MovieContext';
 import './App.css';
 
 function App() {
+const baseUrl=import.meta.env.VITE_BACKEND_URL;
+console.log(baseUrl);
 
- const { movies, searchQuery, setSearchQuery } = useMovieContext();
-
+ const { movies,setMovies, searchQuery, setSearchQuery } = useMovieContext();
+useEffect(()=>{
+   // Fetch in-theatre movies
+  fetch(`${baseUrl}/movies/in-theatre`)
+      .then(res => res.json())
+      .then(data => setMovies(data))
+      .catch(console.error);
+},[])
   return (
     <>
       <div className='wrapper'>

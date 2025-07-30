@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend server for movie viewer",
+  "main": "hono_backend.tsx",
+  "scripts": {
+    "start": "tsx hono_backend.tsx",
+    "start:watch": "tsx watch hono_backend.tsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^1.17.1",
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "hono": "^4.8.10"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
