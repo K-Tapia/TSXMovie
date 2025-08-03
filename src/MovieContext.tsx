@@ -3,8 +3,10 @@ import React, { createContext, useContext, useState, type ReactNode } from "reac
 import { type QueryMovie } from "./movies"; 
 
 interface MovieContextType {
-  movies: QueryMovie[];
-  setMovies: React.Dispatch<React.SetStateAction<QueryMovie[]>>;
+  inTheatreMovies: QueryMovie[];
+  setInTheatreMovies: React.Dispatch<React.SetStateAction<QueryMovie[]>>;
+  popularMovies: QueryMovie[];
+  setPopularMovies: React.Dispatch<React.SetStateAction<QueryMovie[]>>;
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
   
@@ -13,11 +15,12 @@ interface MovieContextType {
 const MovieContext = createContext<MovieContextType | undefined>(undefined);
 
 export const MovieProvider = ({ children }: { children: ReactNode }) => {
-  const [movies, setMovies] = useState<QueryMovie[]>([]);
+  const [inTheatreMovies, setInTheatreMovies] = useState<QueryMovie[]>([]);
+   const [popularMovies, setPopularMovies] = useState<QueryMovie[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   return (
-    <MovieContext.Provider value={{ movies, setMovies, searchQuery, setSearchQuery }}>
+    <MovieContext.Provider value={{ inTheatreMovies, setInTheatreMovies,popularMovies,setPopularMovies, searchQuery, setSearchQuery }}>
       {children}
     </MovieContext.Provider>
   );

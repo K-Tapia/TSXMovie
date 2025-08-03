@@ -26,6 +26,21 @@ app.get("/movies/in-theatre", async (c) => {
   }
 });
 await scrapeAndStore();
+//get info for popular movies
+app.get("/movies/popular", async (c) => {
+  try {
+    const movies = await Promise.all(
+      movieIdContext.mostPopular.map(async (id) => {
+        const res = await axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`);
+        return res.data;
+      })
+    );
+    return c.json(movies);
+  } catch {
+    return c.json({ error: "Failed to fetch movies" }, 500);
+  }
+});
+await scrapeAndStore();
 
 //end of logic
 console.log("Server on http://localhost:4000");

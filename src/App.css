@@ -4,6 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+a {
+  color:#ffffff;
+}
+a:hover{
+  color: grey;
+}
 .movies_outline{
   border: 4px solid aliceblue;
   border-radius: 10px;
