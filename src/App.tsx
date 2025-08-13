@@ -22,11 +22,17 @@ useEffect(()=>{
     <>
       <div className='wrapper'>
       <div className= "nav_header">
-        <h1>Movie Viewer OMDB</h1>
-        <input type="text"placeholder='Search Movie Name'
+        <Link to={'/'}><h1>Movie Viewer OMDB</h1></Link>
+       <div className="search-area">
+         <input type="text"placeholder='Search Movie Name'
         className='search_input' value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             ></input>
+            <Link to={`/search/?q=${encodeURIComponent(searchQuery)}`}>
+             <button className='confirm' disabled={!searchQuery.trim()}>Confirm</button>
+            </Link>
+       </div>
+       
       </div>
      <div className="movies_outline">
        <h2>Popular Movies</h2>

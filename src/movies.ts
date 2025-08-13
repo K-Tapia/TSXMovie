@@ -5,6 +5,13 @@ export interface QueryMovie {
   Type: string;
   Poster: string;
 }
+export interface searchMovie{
+  Title:string;
+  Year:string;
+  imdbID:string;
+  Type:String;
+  Poster:string;
+}
 
 export const dummyMovies: QueryMovie[] = [
   {

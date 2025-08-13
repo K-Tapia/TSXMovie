@@ -4,6 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+.wrapper-wide {
+  max-width: 1600px;
+  width: 90vw; /* 90% of viewport width */
+
+}
 a {
   color:#ffffff;
 }
@@ -27,6 +32,7 @@ a:hover{
     overflow-x:scroll;
 
 }
+
 .movies_list::-webkit-scrollbar {
   height: 30px;
 }
@@ -42,8 +48,48 @@ a:hover{
 .movies_list::-webkit-scrollbar-thumb:hover {
   background-color: grey;
 }
+.movies_listV {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 15px;
+  padding: 15px;
+  height: 70vh; 
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.movies_listV::-webkit-scrollbar {
+  height: 30px;
+}
+.movies_listV::-webkit-scrollbar-track {
+  background: #242424;
+}
+.movies_listV::-webkit-scrollbar-thumb {
+  
+  background-color: aliceblue;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+.movies_listV::-webkit-scrollbar-thumb:hover {
+  background-color: grey;
+}
 .movies{
   padding:4em;
+}
+.confirm{
+
+  height: 32px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  background-color: aliceblue;
+  color:#1e1e1e;
+  border: 2px solid lightgray;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.confirm:hover{
+    background-color: grey;
+  color:aliceblue;
+  border-radius:8px;
 }
 .h3:hover{
   color:grey;
@@ -51,17 +97,25 @@ a:hover{
 
 .nav_header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
 
 .search_input {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  width: 200px;
+  height: 32px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
   border: 2px solid lightgray;
   border-radius: 8px;
   background-color: #1e1e1e;
   color: white;
+  box-sizing: border-box;
 }
-
+.search_area {
+  display: flex;
+  gap: 10px; /* Space between input and button */
+  align-items: center;
+}
