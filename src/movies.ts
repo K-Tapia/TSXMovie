@@ -12,6 +12,18 @@ export interface searchMovie{
   Type:String;
   Poster:string;
 }
+export interface MovieDetails {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Poster: string;
+  Plot: string;
+  Director: string;
+  Actors: string;
+  Genre: string;
+  Runtime: string;
+  imdbRating: string;
+}
 
 export const dummyMovies: QueryMovie[] = [
   {

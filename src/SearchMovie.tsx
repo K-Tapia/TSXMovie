@@ -7,34 +7,22 @@ import './App.css';
 function SearchMovie() {
   const [searchParams] = useSearchParams();
   const [movies, setMovies] = useState<QueryMovie[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<null|string>(null);
-  
-  const { searchQuery, setSearchQuery } = useMovieContext();
-  
+  const { searchQuery, setSearchQuery } = useMovieContext()
   const query = searchParams.get('q') || '';
   const API_KEY = import.meta.env.VITE_API;
 
   useEffect(() => {
     if (query) {
-      setLoading(true);
-      setError(null);
-      
+  
       fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`)
         .then(res => res.json())
         .then(data => {
           if (data.Response === 'False') {
-            setError(data.Error || 'No results found');
             setMovies([]);
           } else {
             setMovies(data.Search || []);
           }
-          setLoading(false);
         })
-        .catch(err => {
-          setError('Search failed');
-          setLoading(false);
-        });
     }
   }, [query]);
 
@@ -54,10 +42,7 @@ function SearchMovie() {
        </div>
 
       <div className="movies_outline">
-        <h2>Search Results for: "{query}"</h2>
-        {loading && <div>Loading...</div>}
-        {error && <div style={{color: 'red'}}>{error}</div>}
-        
+        <h2>Search Results for: "{query}"</h2>   
         <div className="movies_listV">
           {movies.map((movie) => (
             <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID}>
