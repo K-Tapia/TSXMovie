@@ -3,7 +3,7 @@ import {cors} from "hono/cors";
 import {serve} from "@hono/node-server"
 import axios from "axios";
 import { movieIdContext,scrapeAndStore} from "./webscrape.js";
-const apiKey="26dce20e";
+const apiKey= process.env.API_KEY
 //hono server/api fetching
 const app =new Hono();
 app.use(cors());
