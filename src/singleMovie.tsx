@@ -26,10 +26,7 @@ function SingleMovie() {
           }
           setLoading(false);
         })
-        .catch(err => {
-          setError('Failed to fetch movie details');
-          setLoading(false);
-        });
+        
     }
   }, [id, API_KEY]);
 
