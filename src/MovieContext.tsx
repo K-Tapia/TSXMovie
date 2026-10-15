@@ -1,6 +1,6 @@
 // MovieContext.tsx
 import React, { createContext, useContext, useState, type ReactNode } from "react";
-import { type QueryMovie } from "./movies"; 
+import { type QueryMovie, dummyMovies } from "./movies"; 
 
 interface MovieContextType {
   inTheatreMovies: QueryMovie[];
@@ -15,8 +15,8 @@ interface MovieContextType {
 const MovieContext = createContext<MovieContextType | undefined>(undefined);
 
 export const MovieProvider = ({ children }: { children: ReactNode }) => {
-  const [inTheatreMovies, setInTheatreMovies] = useState<QueryMovie[]>([]);
-   const [popularMovies, setPopularMovies] = useState<QueryMovie[]>([]);
+  const [inTheatreMovies, setInTheatreMovies] = useState<QueryMovie[]>(dummyMovies);//initialize with dummy data, incase webscrape fails
+   const [popularMovies, setPopularMovies] = useState<QueryMovie[]>(dummyMovies);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   return (
